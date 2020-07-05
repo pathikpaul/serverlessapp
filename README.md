@@ -18,18 +18,18 @@
 ## Ran the Front End Using the below
 ```bash
   export  FLASK_ENV=development
-  export  FLASK_APP=application  ##
-  flask run --host=192.168.77.10 ## since the machine does not have a browser I had to use below flask command instead of "flask run"
+  export  FLASK_APP=application  
+  flask run --host=192.168.77.10 
 ```
 ```bash
   http://192.168.77.10:5000/
 ```
 ## Deploying the AWS Lambda Code
-- ReadNotes
+- Lambda Function **ReadNotes**
      - lambda_read_notes.py
      - Will need S3 Read IAM role for the Read
      - Test with default template since no inputs are needed
-- WriteNotes
+- Lambda Function **WriteNotes**
      - lambda_write_notes.py
      - Will need S3 Full IAM role for the Read
      - test using below 
@@ -45,14 +45,17 @@
   "key3": "value3"
 }
 ```
-## Deploying the AWS API Gateway
-- Used two functions GET PUT
-- GET
+## Using the AWS API Gateway
+- GET Method
     - Authorization NONE
     - Lambda ReadNotes
     - Tested successfully (No inputs needed)
-    - Please Hit the End Poing using the Browser .. you should get some output
-- PUT
+    - Please Hit the End Poing using the Browser or curl .. you should get some output
+```bash
+curl -H https://xxxxxxxxxx.execute-api.us-west-2.amazonaws.com/dev
+curl -H "x-api-key: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" https://xxxxxxxxxx.execute-api.us-west-2.amazonaws.com/dev
+```
+- PUT Method
     - Authorization NONE
     - Lambda WriteNotes
     - tested using
@@ -64,6 +67,8 @@
 	}]
 }
 ```
+- Deploy your API
+    - **Actions->Deploy API**
 ## Adding the API Key to the API
 - Create Usage Plan
    - Associate Usage Plan to API:Stage
@@ -75,8 +80,7 @@
 ## Storing the API Key in the AWS SSM Parameter Store
 Ref:
 - https://aws.amazon.com/systems-manager/pricing/
-- Standard Pricing – Free – (upto 10,000 Parameter Store API interactions per month)
-
+    - Standard Pricing – Free – (upto 10,000 Parameter Store API interactions per month) 
 "Systems Manager" -> "Parameter Store" -> "button[Create parameter]"
 ```bash
      Name:            APIKey
