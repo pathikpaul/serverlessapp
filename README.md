@@ -53,7 +53,7 @@
     - Please Hit the End Poing using the Browser or curl .. you should get some output
 ```bash
 curl -H https://xxxxxxxxxx.execute-api.us-west-2.amazonaws.com/dev
-curl -H "x-api-key: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" https://xxxxxxxxxx.execute-api.us-west-2.amazonaws.com/dev
+curl -H "x-api-key: xxxxxxxxx" https://xxxx.execute-api.us-west-2.amazonaws.com/dev
 ```
 - PUT Method
     - Authorization NONE
@@ -81,7 +81,7 @@ curl -H "x-api-key: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" https://xxxxxxxxxx
 Ref:
 - https://aws.amazon.com/systems-manager/pricing/
     - Standard Pricing – Free – (upto 10,000 Parameter Store API interactions per month) 
-"Systems Manager" -> "Parameter Store" -> "button[Create parameter]"
+- "Systems Manager" -> "Parameter Store" -> "button[Create parameter]"
 ```bash
      Name:            APIKey
      Type:            SecureString
