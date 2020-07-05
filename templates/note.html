@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %} Welcome Page{% endblock %}
+{% block content %}
+<h1>Note </h1>
+</br> Title={{note.topic}} </br> Comment={{note.comment}} </br></br>
+
+<p>
+{% if index>0 %}
+    <button><a href="{{ url_for('note_view', index=index-1) }}">Prev Note</a></button>
+{% else %}
+    <button><a href="{{ url_for('welcome') }}">At First Note : Welcome</a></button>
+{% endif %}
+    <button><a href="{{ url_for('delete_note', index=index)  }}">Delete Note</a></button>
+{% if index<max_index %}
+    <button><a href="{{ url_for('note_view', index=index +1) }}">Next Note</a></button>     </p>
+{% else %}
+    <button><a href="{{ url_for('welcome') }}">At Last Note : Welcome</a></button>
+{% endif %}
+
+</br></br></br> <a href="{{ url_for('add_note') }}">Add a New Note</a>
+</br></br></br> <a href="{{ url_for('welcome') }}">Welcome Page</a>
+{% endblock %}

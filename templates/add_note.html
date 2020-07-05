@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %} Add Note {% endblock %}
+{% block content %}
+<h1>Add Note</h1>
+<form method="post">
+    Topic:   <input name=topic       type="text"> <br>
+    Comment: <input name=comment     type="text"> <br>
+    <button type="submit" >Submit</button>  </form> 
+</br></br></br> <a href="{{ url_for('welcome') }}">Welcome Page</a>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %} Welcome Page{% endblock %}
+{% block content %}
+<h1>Welcome Page</h1>
+<style>
+td, th { border: 1px solid #dddddd; text-align: left; padding: 8px; }
+tr:nth-child(even) { background-color: #dddddd; }
+</style>
+<table>
+  <tr> <th>#</th> <th>Topic</th> <th>Comment</th> </tr>
+   {% for note in notes %}
+  <tr> <td> <a href="{{ url_for('note_view',index=loop.index0) }}"> {{loop.index0}}</a></td> <td>{{note.topic}}</td> <td>{{note.comment}}</td> </tr>
+   {% endfor %}
+</table>
+
+</br></br> <b> <a href="{{ url_for('add_note') }}">Add a New Note</a> </b>
+</br></br> <b> <a href="{{ url_for('info') }}">Host Information</a> </b>
+{% endblock %}

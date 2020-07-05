@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %} Delete Page{% endblock %}
+{% block content %}
+<h1>Note </h1>
+</br> Title={{note.topic}} </br> Comment={{note.comment}} </br></br>
+
+<form method="post">    <button type="submit" >Delete</button> </form>
+<a href="{{ url_for('welcome') }}">Cancel :: Return to Welcome Screen</a>
+{% endblock %}
