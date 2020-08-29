@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href={{url_for('static', filename='style.css') }}>
+    <title>Login</title>
+</head>
+<body>
+<form action="" method="post">
+  <br><br>
+  Email :   <input type="text"     id="email"    name="email"    value={{request.form.email    }}><br><br>
+  Password: <input type="password" id="password" name="password" value={{request.form.password }}>
+  <br><br><br>
+  <input type="submit" name="LoginButton" value="Login">
+  <input type="submit" name="ForgotButton" value="Forgot Password Please Send New Validation Code">
+  <input type="submit" name="RegisterButton" value="Register">
+</form> 
+
+{% if error %}
+        <br><br>
+        <strong>Error:</strong> {{ error }}
+{% endif %}
+
+</body>
+</html>
+
